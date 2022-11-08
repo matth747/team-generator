@@ -1,6 +1,13 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
 
+// 3 employee subclasses
+const Manager = require('./lib/manager')
+const Engineer = require('./lib/engineer')
+const Intern = require('./lib/intern')
+
+
+// function to take inputs and put them in this html ternary
 const createHtml = (name, id, email, office) => 
 `<!DOCTYPE html>
 <html lang="en">
@@ -44,12 +51,15 @@ return inquirer
         },
         {
             type: 'list',
-            message: 'What is your office number?',
-            name: 'office',
-        },
+            message: 'Would you like to add an engineer or intern?',
+            name: 'choice',
+            choices: (['engineer', 'intern', 'Finished with team'])
+            
+        }]
+        )
+        //if statement takes choice input and uses the corresponding 
         
-        
-    ])}
+    }
     function makeHtml() {
         startApp()
 
